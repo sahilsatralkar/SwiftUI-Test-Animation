@@ -193,6 +193,7 @@ struct View2 : View {
                 }.padding(.top)
                 HStack {
                     Text("Wallet Balance:")
+                        .foregroundColor(Constants.Common.textColor)
                         .padding(.leading)
                     Rectangle()
                         .foregroundColor(Constants.Common.grayBackground)                    .frame(width: 50, height: 20)
@@ -243,10 +244,12 @@ struct View3 : View {
         VStack {
             VStack {
                 Text("Ready To Play?")
+                    .foregroundColor(Constants.Common.textColor)
                     .font(.title2)
                     .frame(height: 20)
                     .padding(.bottom)
                 Text("OSWALD")
+                    .foregroundColor(Constants.Common.textColor)
                     .font(.title)
                     .frame(height: 20)
                     .padding(.bottom)
@@ -262,7 +265,7 @@ struct View3 : View {
                     .clipShape(RoundedRectangle(cornerRadius: 5))
                 
             }.padding(.bottom)
-            HStack (spacing: 10){
+            HStack (spacing: 15){
                 Rectangle()
                     .foregroundColor(Constants.Common.grayBackground)
                     .frame(width: 80, height: 60)
@@ -280,6 +283,7 @@ struct View3 : View {
                 Text("Wallet Balance:")
                     .padding(.leading)
                     .font(.system(size: 16))
+                    .foregroundColor(Constants.Common.textColor)
                 Rectangle()
                     .foregroundColor(Constants.Common.grayBackground)
                     .frame(width: 50, height: 20)
@@ -304,7 +308,7 @@ struct View3 : View {
                 Text("Confirm")
                     .foregroundColor(.white)
                     .font(.body)
-            }.padding(.bottom).padding(.top)
+            }.padding()//.padding(.top)
         }
         .frame(height: 320)
     }

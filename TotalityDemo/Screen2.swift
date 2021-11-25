@@ -85,7 +85,7 @@ struct Screen2: View {
                 
                 .opacity(self.show ?  1: 0)
                 .offset(x: self.show ? 0 : 100)
-                .animation(Animation.easeOut(duration: 1.5).delay(1))
+                .animation(Animation.easeOut(duration: 1).delay(1))
                 //Spacer()
                 Button {
                         print("ON tap download button")
@@ -105,7 +105,7 @@ struct Screen2: View {
                             }.foregroundColor(.white)
                         }.padding(.top)
                         .opacity(self.show ?  1: 0)
-                        .offset(y: self.show ? 0 : 30)
+                        .offset(y: self.show ? 0 : -30)
                         .animation(Animation.easeOut(duration: 1).delay(0.1))
                 }
             }

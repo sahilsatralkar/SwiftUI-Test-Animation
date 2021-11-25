@@ -10,6 +10,7 @@ import SwiftUI
 struct Constants {
     struct Common {
         static let grayBackground = Color(red: 212/255, green: 212/255, blue: 212/255)
+        static let textColor = Color(red: 78/255, green: 78/255, blue: 78/255)
     }
     
     struct Screen1 {
