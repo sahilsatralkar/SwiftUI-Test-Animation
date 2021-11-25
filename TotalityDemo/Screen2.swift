@@ -34,24 +34,24 @@ struct Screen2: View {
                         .opacity(self.show ?  1: 0)
                         .offset(y: self.show ? 0 : 20)
                         .animation(Animation.easeOut(duration: 0.2).delay(1))
-                        
                     Spacer()
                     VStack {
                         Text("x")
+                            .font(.title)
                             .foregroundColor(Constants.Screen1.textColor)
-                            .fontWeight(.medium)
-                            .frame(width: 60, height: 60)
-                        Text("")
-                        Text("")
-                        //Spacer()
+                            
+//                        Text("")
+//                        Text("")
+                        Spacer()
                     }
+                    .frame(width: 60, height: 80)
                     .opacity(self.show ?  1: 0)
                     .offset(y: self.show ? 0 : 20)
                     .animation(Animation.easeOut(duration: 0.1).delay(0.2))
                 }
                 .padding(10)
                 HStack{
-                    Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporasas s.")
+                    Text("What is Lorem Ipsum?Lorem Ipsum is simply dummy text of the printing and typesetting")
                         .foregroundColor(Constants.Screen1.textColor)
                         .fontWeight(.medium)
                         .multilineTextAlignment(.leading)
@@ -75,11 +75,11 @@ struct Screen2: View {
                 HStack {
                     Rectangle()
                         .foregroundColor(Constants.Common.grayBackground)
-                        .frame(width: 190, height: 380)
+                        .frame(width: 190, height: 410)
                         
                     Rectangle()
                         .foregroundColor(Constants.Common.grayBackground)
-                        .frame(width: 190, height: 380)
+                        .frame(width: 190, height: 410)
                         
                 }
                 
