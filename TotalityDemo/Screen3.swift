@@ -94,30 +94,36 @@ struct View1 : View {
                     Rectangle()
                         .foregroundColor(Constants.Common.grayBackground)
                         .frame(width: 150, height: 30)
+                        .clipShape(RoundedRectangle(cornerRadius: 3))
                 }
-                HStack {
+                HStack (spacing: 30){
                     VStack{
                         Circle()
                             .foregroundColor(Constants.Common.grayBackground)
                             .frame(width:80, height: 80)
+                            .padding(.bottom)
                         Rectangle()
                             .foregroundColor(Constants.Common.grayBackground)
-                            .frame(width:100, height: 20)
+                            .frame(width:120, height: 20)
+                            .clipShape(RoundedRectangle(cornerRadius: 3))
                         Rectangle()
                             .foregroundColor(Constants.Common.grayBackground)
-                            .frame(width:60, height: 20)
+                            .frame(width:80, height: 20)
+                            .clipShape(RoundedRectangle(cornerRadius: 3))
                     }
-                    Spacer()
                     VStack {
                         Circle()
                             .foregroundColor(Constants.Common.grayBackground)
                             .frame(width:80, height: 80)
+                            .padding(.bottom)
                         Rectangle()
                             .foregroundColor(Constants.Common.grayBackground)
-                            .frame(width:100, height: 20)
+                            .frame(width:120, height: 20)
+                            .clipShape(RoundedRectangle(cornerRadius: 3))
                         Rectangle()
                             .foregroundColor(Constants.Common.grayBackground)
-                            .frame(width:60, height: 20)
+                            .frame(width:80, height: 20)
+                            .clipShape(RoundedRectangle(cornerRadius: 3))
                     }
                 }.padding()
                 Button {
@@ -138,7 +144,7 @@ struct View1 : View {
                     Text("NEXT")
                         .foregroundColor(.white)
                         .font(.body)
-                }.padding(.top).padding(.top)
+                }.padding(.top)
                 }
         }
             .frame(height: 320)
