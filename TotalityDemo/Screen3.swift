@@ -159,39 +159,41 @@ struct View2 : View {
             VStack {
                 VStack {
                     Rectangle()
-                        .foregroundColor(Constants.Common.grayBackground).frame(width: 200, height: 50)
+                        .foregroundColor(Constants.Common.grayBackground).frame(width: 160, height: 30)
                         .clipShape(RoundedRectangle(cornerRadius: 5))
+                        .padding()
                     Rectangle()
-                        .foregroundColor(Constants.Common.grayBackground).frame(width: 120, height: 30)
+                        .foregroundColor(Constants.Common.grayBackground).frame(width: 120, height: 20)
                         .clipShape(RoundedRectangle(cornerRadius: 5))
-                }.padding(.top)
+                }//.padding()
                 
-                HStack(spacing : 50 ){
+                HStack(spacing : 30 ){
                     ZStack{
                         Circle()
                             .fill(.yellow)
-                            .frame(width: 50, height: 50)
+                            .frame(width: 60, height: 60)
                             //.padding()
                         Text("5")
                             .foregroundColor(.white)
                     }
                     ZStack{
                         Circle()
-                            .foregroundColor(Constants.Common.grayBackground) .frame(width: 50, height: 50)
+                            .foregroundColor(Constants.Common.grayBackground) .frame(width: 60, height: 60)
                             //.padding()
                         Text("10")
                             .foregroundColor(.white)
                     }
                     ZStack{
                         Circle()
-                            .foregroundColor(Constants.Common.grayBackground)    .frame(width: 50, height: 50)
+                            .foregroundColor(Constants.Common.grayBackground)    .frame(width: 60, height: 60)
                             //.padding()
                         Text("15")
                             .foregroundColor(.white)
                     }
-                }
+                }.padding(.top)
                 HStack {
                     Text("Wallet Balance:")
+                        .padding(.leading)
                     Rectangle()
                         .foregroundColor(Constants.Common.grayBackground)                    .frame(width: 50, height: 20)
                         .clipShape(RoundedRectangle(cornerRadius: 5))
@@ -202,6 +204,7 @@ struct View2 : View {
                     Rectangle()
                         .foregroundColor(Constants.Common.grayBackground)                    .frame(width: 20, height: 20)
                         .clipShape(RoundedRectangle(cornerRadius: 5))
+                        .padding(.trailing)
                     
                 }.padding()
                 Button {
@@ -222,7 +225,7 @@ struct View2 : View {
                     Text("NEXT")
                         .foregroundColor(.white)
                         .font(.body)
-                }.padding().padding(.top)
+                }.padding()
                 
                 }
             }
