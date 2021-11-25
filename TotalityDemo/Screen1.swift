@@ -19,7 +19,7 @@ struct ButtonView: View {
     var body: some View {
         Rectangle()
             .frame(width: 320, height: 80)
-            .foregroundColor(Constants.Screen1.buttonColor)
+            .foregroundColor(Constants.Screen1.buttonColor2)
             .clipShape(RoundedRectangle(cornerRadius: 40))
     }
 }
@@ -28,9 +28,9 @@ struct RectangleView : View {
     var body: some View {
         Rectangle()
             .frame(width: 350
-                   , height: 500 )
+                   , height: 520 )
             .foregroundColor(Constants.Screen1.backgroundColor)
-            .clipShape(RoundedRectangle(cornerRadius: 50))
+            .clipShape(RoundedRectangle(cornerRadius: 40))
             .padding()
     }
 }
@@ -43,22 +43,23 @@ struct Screen1: View {
                     .font(.title3)
                     .fontWeight(.medium)
                     .foregroundColor(Constants.Screen1.textColor)
-                    .padding()
+                    .padding(.top, 15)
                 ZStack {
                     RectangleView()
                     VStack {
                         LogoView()
-                            .offset(x: -100, y: -120)
+                            .offset(x: -100, y: -130)
                         ButtonView()
-                            .offset(y: 125)
+                            .offset(y: 140)
                     }
-                }
+                }//.padding(.bottom)
                 ZStack{
+                    
                     Rectangle()
-                        .frame(width: 350
+                        .frame(width: 340
                                , height: 200 )
                         .foregroundColor(Constants.Screen1.backgroundColor)
-                        .clipShape(RoundedRectangle(cornerRadius: 50))
+                        .clipShape(RoundedRectangle(cornerRadius: 40))
                     Rectangle()
                         .frame(width: 350
                                 , height: 100 )
