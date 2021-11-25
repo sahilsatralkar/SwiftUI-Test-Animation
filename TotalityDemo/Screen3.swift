@@ -141,6 +141,10 @@ struct View1 : View {
                         print("@@@")
                         
                         self.selectedScreen.sheetScreenHalf = .screen2
+                        
+                        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
+                            selectedScreen.isHalfSheetNav2 = true
+                        }
                     }
                     else if selectedScreen.sheetScreenHalf == .screen2 {
                         print("$$$")
@@ -189,7 +193,10 @@ struct View2 : View {
                     Rectangle()
                         .foregroundColor(Constants.Common.grayBackground).frame(width: 120, height: 20)
                         .clipShape(RoundedRectangle(cornerRadius: 5))
+                        .scaleEffect(self.selectedScreen.isHalfSheetNav2 ? 1 : 0)
+                        .animation(Animation.easeInOut(duration: 1), value: 1)
                 }//.padding()
+                
                 
                 HStack(spacing : 30 ){
                     ZStack{
@@ -215,6 +222,9 @@ struct View2 : View {
                             .foregroundColor(.white)
                     }
                 }.padding(.top)
+                    .offset( x: self.selectedScreen.isHalfSheetNav2 ? 0 : 500)
+                    .animation(Animation.easeInOut(duration: 1), value: 1)
+                
                 HStack {
                     Text("Wallet Balance:")
                         .foregroundColor(Constants.Common.textColor)
@@ -240,6 +250,9 @@ struct View2 : View {
                     else if selectedScreen.sheetScreenHalf == .screen2 {
                         print("$$$")
                         self.selectedScreen.sheetScreenHalf = .screen3
+                        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
+                            selectedScreen.isHalfSheetNav3 = true
+                        }
                     }
                 } label: {
                 ZStack{
@@ -278,6 +291,8 @@ struct View3 : View {
                     .frame(height: 20)
                     .padding(.bottom)
             }
+            .scaleEffect(self.selectedScreen.isHalfSheetNav3 ? 1 : 0)
+            .animation(Animation.easeInOut(duration: 0.6), value: 1)
             HStack {
                 Rectangle()
                     .foregroundColor(Constants.Common.grayBackground)
@@ -303,6 +318,8 @@ struct View3 : View {
                     .frame(width: 80, height: 60)
                     .clipShape(RoundedRectangle(cornerRadius: 30))
             }
+            .offset( x: self.selectedScreen.isHalfSheetNav3 ? 0 : 500)
+            .animation(Animation.easeInOut(duration: 1), value: 1)
             HStack {
                 Text("Wallet Balance:")
                     .padding(.leading)
