@@ -33,6 +33,7 @@ struct Screen3: View {
         VStack {
             if selectedScreen.sheetScreenHalf == .screen1 {
                 View1()
+                    
                 //View2()
             }
             else if selectedScreen.sheetScreenHalf == .screen2 {
@@ -87,6 +88,8 @@ struct Screen3: View {
 
 struct View1 : View {
     @EnvironmentObject var selectedScreen: ScreenEnvironment
+    @State private var view1Show = false
+
     var body : some View {
         
             VStack{
@@ -95,13 +98,17 @@ struct View1 : View {
                         .foregroundColor(Constants.Common.grayBackground)
                         .frame(width: 150, height: 30)
                         .clipShape(RoundedRectangle(cornerRadius: 3))
+                        .scaleEffect(self.selectedScreen.isHalfSheetNav ? 1 : 0)
+                        .animation(Animation.linear(duration: 4).delay(2),value: 1 )
                 }
+                
                 HStack (spacing: 30){
                     VStack{
                         Circle()
                             .foregroundColor(Constants.Common.grayBackground)
                             .frame(width:80, height: 80)
                             .padding(.bottom)
+                            
                         Rectangle()
                             .foregroundColor(Constants.Common.grayBackground)
                             .frame(width:120, height: 20)
@@ -126,9 +133,13 @@ struct View1 : View {
                             .clipShape(RoundedRectangle(cornerRadius: 3))
                     }
                 }.padding()
+                    .offset( x: self.selectedScreen.isHalfSheetNav ? 0 : 500)
+                    .animation(Animation.easeInOut(duration: 1), value: 1)
+                    
                 Button {
                     if selectedScreen.sheetScreenHalf == .screen1 {
                         print("@@@")
+                        
                         self.selectedScreen.sheetScreenHalf = .screen2
                     }
                     else if selectedScreen.sheetScreenHalf == .screen2 {
@@ -146,10 +157,23 @@ struct View1 : View {
                         .font(.body)
                 }.padding(.top)
                 }
-        }
+                
+            }
+//            .onAppear(perform: {
+//                if selectedScreen.isHalfSheetNav == true {
+//                    Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
+//                        self.view1Show = true
+//                    }
+//                }
+//
+//            })
+
             .frame(height: 320)
+            
         
     }
+        
+    
 }
 
 struct View2 : View {

@@ -24,6 +24,7 @@ class ScreenEnvironment : ObservableObject {
     @Published var screenState : Bool = false
     @Published var sheetScreen : SheetScreen = .screen3
     @Published var sheetScreenHalf : SheetScreenHalf = .screen1
+    @Published var isHalfSheetNav :Bool = false
 }
 
  

@@ -92,6 +92,10 @@ struct Screen2: View {
                     //sheet3Mode = .quarter
                     show2 = true
                     
+                    Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
+                        selectedScreen.isHalfSheetNav = true
+                    }
+                    
                 } label: {
                     ZStack{
                             Rectangle()
@@ -120,6 +124,7 @@ struct Screen2: View {
             })
             BottomSheetView(isOpen: $show2, maxHeight: 380) {
                 if selectedScreen.sheetScreen == .screen3 {
+                    
                     Screen3()
                 } else if selectedScreen.sheetScreen == .screen4 {
                     Screen4()
