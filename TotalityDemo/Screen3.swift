@@ -33,124 +33,101 @@ struct Screen3: View {
         VStack {
             if selectedScreen.sheetScreenHalf == .screen1 {
                 View1()
-                    
-                //View2()
+                
             }
             else if selectedScreen.sheetScreenHalf == .screen2 {
                 View2()
-                //View1()
             }
             else if selectedScreen.sheetScreenHalf == .screen3 {
                 View3()
-                //View1()
             }
             
             
             Button {
                 if selectedScreen.sheetScreenHalf == .screen1 {
-                    print("@@@")
                     self.selectedScreen.sheetScreenHalf = .screen2
                 }
                 else if selectedScreen.sheetScreenHalf == .screen2 {
-                    print("$$$")
                     self.selectedScreen.sheetScreenHalf = .screen3
                 }
                 
-                
-                
             } label: {
-//                ZStack{
-//                    Rectangle()
-//                        .fill(.yellow)
-//                        .frame(width: 320, height: 80)
-//                        .clipShape(RoundedRectangle(cornerRadius: 40))
-//                    Text("NEXT")
-//                        .foregroundColor(.white)
-//                        .font(.body)
-//                }.padding()
+                //
             }
-            
-            
             Spacer()
         }
         
         .offset(y: 40)
         .animation(.spring())
         .edgesIgnoringSafeArea(.all)
-        //.frame(height: 350)
         .clipShape(Rectangle())
         .opacity(1)
-        //.background(.white)
     }
 }
-
-
 
 struct View1 : View {
     @EnvironmentObject var selectedScreen: ScreenEnvironment
     @State private var view1Show = false
-
+    
     var body : some View {
         
-            VStack{
-                HStack{
+        VStack{
+            HStack{
+                Rectangle()
+                    .foregroundColor(Constants.Common.grayBackground)
+                    .frame(width: 150, height: 30)
+                    .clipShape(RoundedRectangle(cornerRadius: 3))
+                    .scaleEffect(self.selectedScreen.isHalfSheetNav ? 1 : 0)
+                    .animation(Animation.linear(duration: 4).delay(2),value: 1 )
+            }
+            
+            HStack (spacing: 30){
+                VStack{
+                    Circle()
+                        .foregroundColor(Constants.Common.grayBackground)
+                        .frame(width:80, height: 80)
+                        .padding(.bottom)
+                    
                     Rectangle()
                         .foregroundColor(Constants.Common.grayBackground)
-                        .frame(width: 150, height: 30)
+                        .frame(width:120, height: 20)
                         .clipShape(RoundedRectangle(cornerRadius: 3))
-                        .scaleEffect(self.selectedScreen.isHalfSheetNav ? 1 : 0)
-                        .animation(Animation.linear(duration: 4).delay(2),value: 1 )
+                    Rectangle()
+                        .foregroundColor(Constants.Common.grayBackground)
+                        .frame(width:80, height: 20)
+                        .clipShape(RoundedRectangle(cornerRadius: 3))
                 }
-                
-                HStack (spacing: 30){
-                    VStack{
-                        Circle()
-                            .foregroundColor(Constants.Common.grayBackground)
-                            .frame(width:80, height: 80)
-                            .padding(.bottom)
-                            
-                        Rectangle()
-                            .foregroundColor(Constants.Common.grayBackground)
-                            .frame(width:120, height: 20)
-                            .clipShape(RoundedRectangle(cornerRadius: 3))
-                        Rectangle()
-                            .foregroundColor(Constants.Common.grayBackground)
-                            .frame(width:80, height: 20)
-                            .clipShape(RoundedRectangle(cornerRadius: 3))
-                    }
-                    VStack {
-                        Circle()
-                            .foregroundColor(Constants.Common.grayBackground)
-                            .frame(width:80, height: 80)
-                            .padding(.bottom)
-                        Rectangle()
-                            .foregroundColor(Constants.Common.grayBackground)
-                            .frame(width:120, height: 20)
-                            .clipShape(RoundedRectangle(cornerRadius: 3))
-                        Rectangle()
-                            .foregroundColor(Constants.Common.grayBackground)
-                            .frame(width:80, height: 20)
-                            .clipShape(RoundedRectangle(cornerRadius: 3))
-                    }
-                }.padding()
-                    .offset( x: self.selectedScreen.isHalfSheetNav ? 0 : 500)
-                    .animation(Animation.easeInOut(duration: 1), value: 1)
+                VStack {
+                    Circle()
+                        .foregroundColor(Constants.Common.grayBackground)
+                        .frame(width:80, height: 80)
+                        .padding(.bottom)
+                    Rectangle()
+                        .foregroundColor(Constants.Common.grayBackground)
+                        .frame(width:120, height: 20)
+                        .clipShape(RoundedRectangle(cornerRadius: 3))
+                    Rectangle()
+                        .foregroundColor(Constants.Common.grayBackground)
+                        .frame(width:80, height: 20)
+                        .clipShape(RoundedRectangle(cornerRadius: 3))
+                }
+            }.padding()
+                .offset( x: self.selectedScreen.isHalfSheetNav ? 0 : 500)
+                .animation(Animation.easeInOut(duration: 1), value: 1)
+            
+            Button {
+                if selectedScreen.sheetScreenHalf == .screen1 {
                     
-                Button {
-                    if selectedScreen.sheetScreenHalf == .screen1 {
-                        print("@@@")
-                        
-                        self.selectedScreen.sheetScreenHalf = .screen2
-                        
-                        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
-                            selectedScreen.isHalfSheetNav2 = true
-                        }
+                    self.selectedScreen.sheetScreenHalf = .screen2
+                    
+                    Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
+                        selectedScreen.isHalfSheetNav2 = true
                     }
-                    else if selectedScreen.sheetScreenHalf == .screen2 {
-                        print("$$$")
-                        self.selectedScreen.sheetScreenHalf = .screen3
-                    }
-                } label: {
+                }
+                else if selectedScreen.sheetScreenHalf == .screen2 {
+                    self.selectedScreen.sheetScreenHalf = .screen3
+                }
+            } label: {
                 ZStack{
                     Rectangle()
                         .fill(.yellow)
@@ -160,101 +137,87 @@ struct View1 : View {
                         .foregroundColor(.white)
                         .font(.body)
                 }.padding(.top)
-                }
-                
             }
-//            .onAppear(perform: {
-//                if selectedScreen.isHalfSheetNav == true {
-//                    Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
-//                        self.view1Show = true
-//                    }
-//                }
-//
-//            })
-
-            .frame(height: 320)
             
+        }
+        .frame(height: 320)
         
     }
-        
-    
 }
 
 struct View2 : View {
     @EnvironmentObject var selectedScreen: ScreenEnvironment
     var body : some View {
         
+        VStack {
             VStack {
-                VStack {
-                    Rectangle()
-                        .foregroundColor(Constants.Common.grayBackground).frame(width: 160, height: 30)
-                        .clipShape(RoundedRectangle(cornerRadius: 5))
-                        .padding()
-                    Rectangle()
-                        .foregroundColor(Constants.Common.grayBackground).frame(width: 120, height: 20)
-                        .clipShape(RoundedRectangle(cornerRadius: 5))
-                        .scaleEffect(self.selectedScreen.isHalfSheetNav2 ? 1 : 0)
-                        .animation(Animation.easeInOut(duration: 1), value: 1)
-                }//.padding()
-                
-                
-                HStack(spacing : 30 ){
-                    ZStack{
-                        Circle()
-                            .fill(.yellow)
-                            .frame(width: 60, height: 60)
-                            //.padding()
-                        Text("5")
-                            .foregroundColor(.white)
-                    }
-                    ZStack{
-                        Circle()
-                            .foregroundColor(Constants.Common.grayBackground) .frame(width: 60, height: 60)
-                            //.padding()
-                        Text("10")
-                            .foregroundColor(.white)
-                    }
-                    ZStack{
-                        Circle()
-                            .foregroundColor(Constants.Common.grayBackground)    .frame(width: 60, height: 60)
-                            //.padding()
-                        Text("15")
-                            .foregroundColor(.white)
-                    }
-                }.padding(.top)
-                    .offset( x: self.selectedScreen.isHalfSheetNav2 ? 0 : 500)
+                Rectangle()
+                    .foregroundColor(Constants.Common.grayBackground).frame(width: 160, height: 30)
+                    .clipShape(RoundedRectangle(cornerRadius: 5))
+                    .padding()
+                Rectangle()
+                    .foregroundColor(Constants.Common.grayBackground).frame(width: 120, height: 20)
+                    .clipShape(RoundedRectangle(cornerRadius: 5))
+                    .scaleEffect(self.selectedScreen.isHalfSheetNav2 ? 1 : 0)
                     .animation(Animation.easeInOut(duration: 1), value: 1)
+            }
+            
+            
+            HStack(spacing : 30 ){
+                ZStack{
+                    Circle()
+                        .fill(.yellow)
+                        .frame(width: 60, height: 60)
+                    Text("5")
+                        .foregroundColor(.white)
+                }
+                ZStack{
+                    Circle()
+                        .foregroundColor(Constants.Common.grayBackground) .frame(width: 60, height: 60)
+                    Text("10")
+                        .foregroundColor(.white)
+                }
+                ZStack{
+                    Circle()
+                        .foregroundColor(Constants.Common.grayBackground)    .frame(width: 60, height: 60)
+                    Text("15")
+                        .foregroundColor(.white)
+                }
+            }.padding(.top)
+                .offset( x: self.selectedScreen.isHalfSheetNav2 ? 0 : 500)
+                .animation(Animation.easeInOut(duration: 1), value: 1)
+            
+            HStack {
+                Text("Wallet Balance:")
+                    .foregroundColor(Constants.Common.textColor)
+                    .padding(.leading)
+                Rectangle()
+                    .foregroundColor(Constants.Common.grayBackground)
+                    .frame(width: 50, height: 20)
+                    .clipShape(RoundedRectangle(cornerRadius: 5))
+                Spacer()
+                Rectangle()
+                    .foregroundColor(Constants.Common.grayBackground)
+                    .frame(width: 30, height: 20)
+                    .clipShape(RoundedRectangle(cornerRadius: 5))
+                Rectangle()
+                    .foregroundColor(Constants.Common.grayBackground)
+                    .frame(width: 20, height: 20)
+                    .clipShape(RoundedRectangle(cornerRadius: 5))
+                    .padding(.trailing)
                 
-                HStack {
-                    Text("Wallet Balance:")
-                        .foregroundColor(Constants.Common.textColor)
-                        .padding(.leading)
-                    Rectangle()
-                        .foregroundColor(Constants.Common.grayBackground)                    .frame(width: 50, height: 20)
-                        .clipShape(RoundedRectangle(cornerRadius: 5))
-                    Spacer()
-                    Rectangle()
-                        .foregroundColor(Constants.Common.grayBackground)                    .frame(width: 30, height: 20)
-                        .clipShape(RoundedRectangle(cornerRadius: 5))
-                    Rectangle()
-                        .foregroundColor(Constants.Common.grayBackground)                    .frame(width: 20, height: 20)
-                        .clipShape(RoundedRectangle(cornerRadius: 5))
-                        .padding(.trailing)
-                    
-                }.padding()
-                Button {
-                    if selectedScreen.sheetScreenHalf == .screen1 {
-                        print("@@@")
-                        self.selectedScreen.sheetScreenHalf = .screen2
+            }.padding()
+            Button {
+                if selectedScreen.sheetScreenHalf == .screen1 {
+                    self.selectedScreen.sheetScreenHalf = .screen2
+                }
+                else if selectedScreen.sheetScreenHalf == .screen2 {
+                    self.selectedScreen.sheetScreenHalf = .screen3
+                    Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
+                        selectedScreen.isHalfSheetNav3 = true
                     }
-                    else if selectedScreen.sheetScreenHalf == .screen2 {
-                        print("$$$")
-                        self.selectedScreen.sheetScreenHalf = .screen3
-                        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
-                            selectedScreen.isHalfSheetNav3 = true
-                        }
-                    }
-                } label: {
+                }
+            } label: {
                 ZStack{
                     Rectangle()
                         .fill(.yellow)
@@ -265,10 +228,10 @@ struct View2 : View {
                         .font(.body)
                 }.padding()
                 
-                }
             }
+        }
         
-            .frame(height: 320)
+        .frame(height: 320)
         
         
     }
@@ -277,7 +240,7 @@ struct View2 : View {
 struct View3 : View {
     @EnvironmentObject var selectedScreen: ScreenEnvironment
     var body : some View {
-    
+        
         VStack {
             VStack {
                 Text("Ready To Play?")
@@ -349,7 +312,7 @@ struct View3 : View {
                 Text("Confirm")
                     .foregroundColor(.white)
                     .font(.body)
-            }.padding()//.padding(.top)
+            }.padding()
         }
         .frame(height: 320)
     }
@@ -358,6 +321,6 @@ struct View3 : View {
 struct Screen3_Previews: PreviewProvider {
     static var previews: some View {
         Screen3()
-            //.background(.red)
+        
     }
 }

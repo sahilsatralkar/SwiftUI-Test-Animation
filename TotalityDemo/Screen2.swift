@@ -16,7 +16,6 @@ struct Screen2: View {
     
     var body: some View {
         GeometryReader { geometry in
-            //Screen3(screen3Mode: $sheet3Mode)
             VStack {
                 HStack {
                     LogoView()
@@ -39,9 +38,6 @@ struct Screen2: View {
                         Text("x")
                             .font(.title)
                             .foregroundColor(Constants.Screen1.textColor)
-                            
-//                        Text("")
-//                        Text("")
                         Spacer()
                     }
                     .frame(width: 60, height: 80)
@@ -76,20 +72,18 @@ struct Screen2: View {
                     Rectangle()
                         .foregroundColor(Constants.Common.grayBackground)
                         .frame(width: 190, height: 410)
-                        
+                    
                     Rectangle()
                         .foregroundColor(Constants.Common.grayBackground)
                         .frame(width: 190, height: 410)
-                        
+                    
                 }
                 
                 .opacity(self.show ?  1: 0)
                 .offset(x: self.show ? 0 : 100)
                 .animation(Animation.easeOut(duration: 1).delay(1))
-                //Spacer()
                 Button {
-                        print("ON tap download button")
-                    //sheet3Mode = .quarter
+                    print("ON tap download button")
                     show2 = true
                     
                     Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
@@ -98,25 +92,21 @@ struct Screen2: View {
                     
                 } label: {
                     ZStack{
-                            Rectangle()
-                                .fill(.yellow)
-                                .frame(width: 350, height: 60)
-                                .clipShape(RoundedRectangle(cornerRadius: 30))
-                                .padding()
-                            VStack {
-                                Text("Download")
-                                Text("30 MB")
-                            }.foregroundColor(.white)
-                        }.padding(.top)
+                        Rectangle()
+                            .fill(.yellow)
+                            .frame(width: 350, height: 60)
+                            .clipShape(RoundedRectangle(cornerRadius: 30))
+                            .padding()
+                        VStack {
+                            Text("Download")
+                            Text("30 MB")
+                        }.foregroundColor(.white)
+                    }.padding(.top)
                         .opacity(self.show ?  1: 0)
                         .offset(y: self.show ? 0 : -30)
                         .animation(Animation.easeOut(duration: 1).delay(0.1))
                 }
             }
-//            .sheet(isPresented: $show2) {
-//                Screen3()
-//            }
-            
             .onAppear(perform: {
                 
                 print("On appear")
