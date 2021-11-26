@@ -11,36 +11,33 @@ struct Screen3: View {
     
     @EnvironmentObject var selectedScreen: ScreenEnvironment
     
-    var screen3Mode : Screen3Mode = .quarter
-    
-    @State private var showScreen4 = false
+    var screen3Mode : Screen3Mode = .half
     
     private func calculateOffset() -> CGFloat {
         switch screen3Mode {
         case .none:
             return 0
-        case .quarter:
+        case .half:
             return UIScreen.main.bounds.height - 350
         }
     }
     
     var body: some View {
         VStack {
-            if selectedScreen.sheetScreenHalf == .screen1 {
-                View1()
-            }
-            else if selectedScreen.sheetScreenHalf == .screen2 {
-                View2()
-            }
-            else if selectedScreen.sheetScreenHalf == .screen3 {
-                View3()
+            switch selectedScreen.halfSheetScreen {
+            case .screen1 :
+                firstHalfScreenView()
+            case .screen2 :
+                secondHalfScreenView()
+            case .screen3 :
+                thirdHalfScreenView()
             }
             Button {
-                if selectedScreen.sheetScreenHalf == .screen1 {
-                    self.selectedScreen.sheetScreenHalf = .screen2
+                if selectedScreen.halfSheetScreen == .screen1 {
+                    self.selectedScreen.halfSheetScreen = .screen2
                 }
-                else if selectedScreen.sheetScreenHalf == .screen2 {
-                    self.selectedScreen.sheetScreenHalf = .screen3
+                else if selectedScreen.halfSheetScreen == .screen2 {
+                    self.selectedScreen.halfSheetScreen = .screen3
                 }
             } label: {
                 //
@@ -56,7 +53,7 @@ struct Screen3: View {
     }
 }
 
-struct View1 : View {
+struct firstHalfScreenView : View {
     @EnvironmentObject var selectedScreen: ScreenEnvironment
     @State private var view1Show = false
     
@@ -103,16 +100,14 @@ struct View1 : View {
                 .offset( x: self.selectedScreen.isHalfSheetNav ? 0 : 500)
                 .animation(Animation.easeInOut(duration: 1), value: 1)
             Button {
-                if selectedScreen.sheetScreenHalf == .screen1 {
-                    
-                    self.selectedScreen.sheetScreenHalf = .screen2
-                    
+                if selectedScreen.halfSheetScreen == .screen1 {
+                    self.selectedScreen.halfSheetScreen = .screen2
                     Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
                         selectedScreen.isHalfSheetNav2 = true
                     }
                 }
-                else if selectedScreen.sheetScreenHalf == .screen2 {
-                    self.selectedScreen.sheetScreenHalf = .screen3
+                else if selectedScreen.halfSheetScreen == .screen2 {
+                    self.selectedScreen.halfSheetScreen = .screen3
                 }
             } label: {
                 ZStack{
@@ -130,7 +125,7 @@ struct View1 : View {
     }
 }
 
-struct View2 : View {
+struct secondHalfScreenView : View {
     @EnvironmentObject var selectedScreen: ScreenEnvironment
     var body : some View {
         VStack {
@@ -188,11 +183,11 @@ struct View2 : View {
                     .padding(.trailing)
             }.padding().padding(.top)
             Button {
-                if selectedScreen.sheetScreenHalf == .screen1 {
-                    self.selectedScreen.sheetScreenHalf = .screen2
+                if selectedScreen.halfSheetScreen == .screen1 {
+                    self.selectedScreen.halfSheetScreen = .screen2
                 }
-                else if selectedScreen.sheetScreenHalf == .screen2 {
-                    self.selectedScreen.sheetScreenHalf = .screen3
+                else if selectedScreen.halfSheetScreen == .screen2 {
+                    self.selectedScreen.halfSheetScreen = .screen3
                     Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
                         selectedScreen.isHalfSheetNav3 = true
                     }
@@ -213,7 +208,7 @@ struct View2 : View {
     }
 }
 
-struct View3 : View {
+struct thirdHalfScreenView : View {
     @EnvironmentObject var selectedScreen: ScreenEnvironment
     var body : some View {
         VStack {

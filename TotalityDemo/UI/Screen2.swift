@@ -214,9 +214,7 @@ struct Screen2: View {
                 self.startAnimation = true
             })
             BottomSheetView(isOpen: $showBottomSheet, maxHeight: 380) {
-                if selectedScreen.sheetScreen == .screen3 {
-                    Screen3()
-                }
+                Screen3()
             }
         }
     }

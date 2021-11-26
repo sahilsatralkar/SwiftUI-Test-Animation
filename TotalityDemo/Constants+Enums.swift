@@ -44,7 +44,7 @@ enum ScreenState {
 enum SheetScreen {
     case screen3, screen4, screen5
 }
-enum SheetScreenHalf {
+enum HalfSheetScreen {
     case screen1, screen2, screen3
 }
 enum ButtonStates {
@@ -52,5 +52,5 @@ enum ButtonStates {
 }
 enum Screen3Mode {
     case none
-    case quarter
+    case half
 }
