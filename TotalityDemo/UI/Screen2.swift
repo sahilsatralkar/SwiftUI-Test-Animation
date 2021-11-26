@@ -73,11 +73,11 @@ struct Screen2: View {
                 HStack {
                     Rectangle()
                         .foregroundColor(Constants.Common.grayBackground)
-                        .frame(width: 190, height: 410)
+                        .frame(width: 195, height: 410)
                     
                     Rectangle()
                         .foregroundColor(Constants.Common.grayBackground)
-                        .frame(width: 190, height: 410)
+                        .frame(width: 195, height: 410)
                     
                 }
                 .opacity(self.startAnimation ?  1: 0)
