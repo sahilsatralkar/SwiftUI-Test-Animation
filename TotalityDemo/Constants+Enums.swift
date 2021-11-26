@@ -39,3 +39,7 @@ enum SheetScreenHalf {
 enum ButtonStates {
     case first, second, third, fourth
 }
+enum Screen3Mode {
+    case none
+    case quarter
+}
