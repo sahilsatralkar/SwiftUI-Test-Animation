@@ -7,6 +7,44 @@
 
 import SwiftUI
 
+struct Screen1: View {
+    @EnvironmentObject var selectedScreen: ScreenEnvironment
+    var body: some View {
+        VStack {
+            Text("PLAY")
+                .font(.title3)
+                .fontWeight(.medium)
+                .foregroundColor(Constants.Screen1.textColor)
+                .padding(.top, 15)
+            ZStack {
+                RectangleView()
+                VStack {
+                    LogoView()
+                        .offset(x: -100, y: -130)
+                    ButtonView()
+                        .offset(y: 140)
+                }
+            }
+            ZStack{
+                Rectangle()
+                    .frame(width: 340
+                           , height: 200 )
+                    .foregroundColor(Constants.Screen1.backgroundColor)
+                    .clipShape(RoundedRectangle(cornerRadius: 40))
+                Rectangle()
+                    .frame(width: 350
+                           , height: 100 )
+                    .foregroundColor(.white)
+                    .offset( y: 80)
+            }
+            
+        }.onTapGesture {
+            selectedScreen.initialScreenState = .screen2
+        }
+        
+    }
+}
+
 struct LogoView : View {
     var body : some View {
         Rectangle()
@@ -32,45 +70,6 @@ struct RectangleView : View {
             .foregroundColor(Constants.Screen1.backgroundColor)
             .clipShape(RoundedRectangle(cornerRadius: 40))
             .padding()
-    }
-}
-
-struct Screen1: View {
-    @EnvironmentObject var selectedScreen: ScreenEnvironment
-    var body: some View {
-        VStack {
-            Text("PLAY")
-                .font(.title3)
-                .fontWeight(.medium)
-                .foregroundColor(Constants.Screen1.textColor)
-                .padding(.top, 15)
-            ZStack {
-                RectangleView()
-                VStack {
-                    LogoView()
-                        .offset(x: -100, y: -130)
-                    ButtonView()
-                        .offset(y: 140)
-                }
-            }
-            ZStack{
-                
-                Rectangle()
-                    .frame(width: 340
-                           , height: 200 )
-                    .foregroundColor(Constants.Screen1.backgroundColor)
-                    .clipShape(RoundedRectangle(cornerRadius: 40))
-                Rectangle()
-                    .frame(width: 350
-                           , height: 100 )
-                    .foregroundColor(.white)
-                    .offset( y: 80)
-            }
-            
-        }.onTapGesture {
-            selectedScreen.screenState = true
-        }
-        
     }
 }
 

@@ -11,7 +11,6 @@ struct Screen2: View {
     @EnvironmentObject var selectedScreen: ScreenEnvironment
     @State var show = false
     @State private var show2 = false
-    
     @State private var sheet3Mode : Screen3Mode = .none
     @State private var loading = false
     @State private var checkmark = false

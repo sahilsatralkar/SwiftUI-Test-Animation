@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct ParentView: View {
-    @State var selection : Int? = nil
     
     @EnvironmentObject var selectedScreen: ScreenEnvironment
     
     var body: some View {
-        if selectedScreen.screenState == false {
+        switch selectedScreen.initialScreenState {
+        case .screen1 :
             Screen1()
-        } else {
+        case .screen2 :
             Screen2()
         }
     }

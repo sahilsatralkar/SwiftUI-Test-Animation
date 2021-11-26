@@ -7,14 +7,6 @@
 
 import SwiftUI
 
-fileprivate enum SheetConstants {
-    static let radius: CGFloat = 16
-    static let indicatorHeight: CGFloat = 6
-    static let indicatorWidth: CGFloat = 60
-    static let snapRatio: CGFloat = 0.25
-    static let minHeightRatio: CGFloat = 0
-}
-
 struct BottomSheetView<Content: View>: View {
     @Binding var isOpen: Bool
     
@@ -53,7 +45,6 @@ struct BottomSheetView<Content: View>: View {
             }
             .frame(width: geometry.size.width, height: self.maxHeight, alignment: .top)
             .background(Color(.secondarySystemBackground))
-            //.cornerRadius(SheetConstants.radius)
             .frame(height: geometry.size.height, alignment: .bottom)
             .offset(y: max(self.offset + self.translation, 0))
             .animation(.interactiveSpring())

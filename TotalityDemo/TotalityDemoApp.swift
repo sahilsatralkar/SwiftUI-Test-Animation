@@ -19,7 +19,7 @@ struct TotalityDemoApp: App {
 }
 
 class ScreenEnvironment : ObservableObject {
-    @Published var screenState : Bool = false
+    @Published var initialScreenState : ScreenState = .screen1
     @Published var sheetScreen : SheetScreen = .screen3
     @Published var sheetScreenHalf : SheetScreenHalf = .screen1
     @Published var isHalfSheetNav :Bool = false
