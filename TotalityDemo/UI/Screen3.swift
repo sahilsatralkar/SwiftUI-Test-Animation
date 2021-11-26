@@ -26,11 +26,11 @@ struct Screen3: View {
         VStack {
             switch selectedScreen.halfSheetScreen {
             case .screen1 :
-                firstHalfScreenView()
+                FirstHalfScreenView()
             case .screen2 :
-                secondHalfScreenView()
+                SecondHalfScreenView()
             case .screen3 :
-                thirdHalfScreenView()
+                ThirdHalfScreenView()
             }
             Button {
                 if selectedScreen.halfSheetScreen == .screen1 {
@@ -53,7 +53,7 @@ struct Screen3: View {
     }
 }
 
-struct firstHalfScreenView : View {
+struct FirstHalfScreenView : View {
     @EnvironmentObject var selectedScreen: ScreenEnvironment
     @State private var view1Show = false
     
@@ -125,7 +125,7 @@ struct firstHalfScreenView : View {
     }
 }
 
-struct secondHalfScreenView : View {
+struct SecondHalfScreenView : View {
     @EnvironmentObject var selectedScreen: ScreenEnvironment
     var body : some View {
         VStack {
@@ -208,7 +208,7 @@ struct secondHalfScreenView : View {
     }
 }
 
-struct thirdHalfScreenView : View {
+struct ThirdHalfScreenView : View {
     @EnvironmentObject var selectedScreen: ScreenEnvironment
     var body : some View {
         VStack {
