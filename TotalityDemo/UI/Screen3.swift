@@ -7,11 +7,6 @@
 
 import SwiftUI
 
-enum Screen3Mode {
-    case none
-    case quarter
-}
-
 struct Screen3: View {
     
     @EnvironmentObject var selectedScreen: ScreenEnvironment

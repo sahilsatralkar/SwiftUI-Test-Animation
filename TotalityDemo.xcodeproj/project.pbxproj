@@ -63,11 +63,7 @@
 			children = (
 				1C9F20E1274BDFAA00DDD4F5 /* TotalityDemoApp.swift */,
 				1C9F20F9274D328200DDD4F5 /* Constants+Enums.swift */,
-				1C9F20E3274BDFAA00DDD4F5 /* ParentView.swift */,
-				1C9F20F7274D235100DDD4F5 /* Screen1.swift */,
-				1C9F20EF274C139C00DDD4F5 /* Screen2.swift */,
-				1C9F20F1274C1AAF00DDD4F5 /* Screen3.swift */,
-				1C9F20FB274E78D600DDD4F5 /* BottomSheetView.swift */,
+				1CCCAE592750D9DA00F659F3 /* UI */,
 				1C9F20E5274BDFAC00DDD4F5 /* Assets.xcassets */,
 				1C9F20E7274BDFAC00DDD4F5 /* Preview Content */,
 			);
@@ -80,6 +76,18 @@
 				1C9F20E8274BDFAC00DDD4F5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1CCCAE592750D9DA00F659F3 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				1C9F20E3274BDFAA00DDD4F5 /* ParentView.swift */,
+				1C9F20F7274D235100DDD4F5 /* Screen1.swift */,
+				1C9F20EF274C139C00DDD4F5 /* Screen2.swift */,
+				1C9F20F1274C1AAF00DDD4F5 /* Screen3.swift */,
+				1C9F20FB274E78D600DDD4F5 /* BottomSheetView.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
