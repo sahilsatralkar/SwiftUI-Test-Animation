@@ -14,7 +14,7 @@
 		1C9F20F0274C139C00DDD4F5 /* Screen2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9F20EF274C139C00DDD4F5 /* Screen2.swift */; };
 		1C9F20F2274C1AAF00DDD4F5 /* Screen3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9F20F1274C1AAF00DDD4F5 /* Screen3.swift */; };
 		1C9F20F8274D235100DDD4F5 /* Screen1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9F20F7274D235100DDD4F5 /* Screen1.swift */; };
-		1C9F20FA274D328200DDD4F5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9F20F9274D328200DDD4F5 /* Constants.swift */; };
+		1C9F20FA274D328200DDD4F5 /* Constants+Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9F20F9274D328200DDD4F5 /* Constants+Enums.swift */; };
 		1C9F20FC274E78D600DDD4F5 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9F20FB274E78D600DDD4F5 /* BottomSheetView.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,7 +27,7 @@
 		1C9F20EF274C139C00DDD4F5 /* Screen2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen2.swift; sourceTree = "<group>"; };
 		1C9F20F1274C1AAF00DDD4F5 /* Screen3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen3.swift; sourceTree = "<group>"; };
 		1C9F20F7274D235100DDD4F5 /* Screen1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen1.swift; sourceTree = "<group>"; };
-		1C9F20F9274D328200DDD4F5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1C9F20F9274D328200DDD4F5 /* Constants+Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants+Enums.swift"; sourceTree = "<group>"; };
 		1C9F20FB274E78D600DDD4F5 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,7 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				1C9F20E1274BDFAA00DDD4F5 /* TotalityDemoApp.swift */,
-				1C9F20F9274D328200DDD4F5 /* Constants.swift */,
+				1C9F20F9274D328200DDD4F5 /* Constants+Enums.swift */,
 				1C9F20E3274BDFAA00DDD4F5 /* ParentView.swift */,
 				1C9F20F7274D235100DDD4F5 /* Screen1.swift */,
 				1C9F20EF274C139C00DDD4F5 /* Screen2.swift */,
@@ -158,7 +158,7 @@
 				1C9F20E2274BDFAA00DDD4F5 /* TotalityDemoApp.swift in Sources */,
 				1C9F20F2274C1AAF00DDD4F5 /* Screen3.swift in Sources */,
 				1C9F20F8274D235100DDD4F5 /* Screen1.swift in Sources */,
-				1C9F20FA274D328200DDD4F5 /* Constants.swift in Sources */,
+				1C9F20FA274D328200DDD4F5 /* Constants+Enums.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
