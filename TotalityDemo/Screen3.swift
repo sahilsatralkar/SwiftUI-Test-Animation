@@ -33,7 +33,6 @@ struct Screen3: View {
         VStack {
             if selectedScreen.sheetScreenHalf == .screen1 {
                 View1()
-                
             }
             else if selectedScreen.sheetScreenHalf == .screen2 {
                 View2()
@@ -41,8 +40,6 @@ struct Screen3: View {
             else if selectedScreen.sheetScreenHalf == .screen3 {
                 View3()
             }
-            
-            
             Button {
                 if selectedScreen.sheetScreenHalf == .screen1 {
                     self.selectedScreen.sheetScreenHalf = .screen2
@@ -50,7 +47,6 @@ struct Screen3: View {
                 else if selectedScreen.sheetScreenHalf == .screen2 {
                     self.selectedScreen.sheetScreenHalf = .screen3
                 }
-                
             } label: {
                 //
             }
@@ -70,7 +66,6 @@ struct View1 : View {
     @State private var view1Show = false
     
     var body : some View {
-        
         VStack{
             HStack{
                 Rectangle()
@@ -80,14 +75,12 @@ struct View1 : View {
                     .scaleEffect(self.selectedScreen.isHalfSheetNav ? 1 : 0)
                     .animation(Animation.linear(duration: 4).delay(2),value: 1 )
             }
-            
             HStack (spacing: 30){
                 VStack{
                     Circle()
                         .foregroundColor(Constants.Common.grayBackground)
                         .frame(width:80, height: 80)
                         .padding(.bottom)
-                    
                     Rectangle()
                         .foregroundColor(Constants.Common.grayBackground)
                         .frame(width:120, height: 20)
@@ -114,7 +107,6 @@ struct View1 : View {
             }.padding().padding(.top)
                 .offset( x: self.selectedScreen.isHalfSheetNav ? 0 : 500)
                 .animation(Animation.easeInOut(duration: 1), value: 1)
-            
             Button {
                 if selectedScreen.sheetScreenHalf == .screen1 {
                     
@@ -138,17 +130,14 @@ struct View1 : View {
                         .font(.body)
                 }.padding(.top)
             }
-            
         }
         .frame(height: 320)
-        
     }
 }
 
 struct View2 : View {
     @EnvironmentObject var selectedScreen: ScreenEnvironment
     var body : some View {
-        
         VStack {
             VStack {
                 Rectangle()
@@ -161,8 +150,6 @@ struct View2 : View {
                     .scaleEffect(self.selectedScreen.isHalfSheetNav2 ? 1 : 0)
                     .animation(Animation.easeInOut(duration: 1), value: 1)
             }
-            
-            
             HStack(spacing : 30 ){
                 ZStack{
                     Circle()
@@ -186,7 +173,6 @@ struct View2 : View {
             }.padding(.top)
                 .offset( x: self.selectedScreen.isHalfSheetNav2 ? 0 : 500)
                 .animation(Animation.easeInOut(duration: 1), value: 1)
-            
             HStack {
                 Text("Wallet Balance:")
                     .foregroundColor(Constants.Common.textColor)
@@ -205,7 +191,6 @@ struct View2 : View {
                     .frame(width: 20, height: 20)
                     .clipShape(RoundedRectangle(cornerRadius: 5))
                     .padding(.trailing)
-                
             }.padding().padding(.top)
             Button {
                 if selectedScreen.sheetScreenHalf == .screen1 {
@@ -227,20 +212,15 @@ struct View2 : View {
                         .foregroundColor(.white)
                         .font(.body)
                 }.padding()
-                
             }
         }
-        
         .frame(height: 320)
-        
-        
     }
 }
 
 struct View3 : View {
     @EnvironmentObject var selectedScreen: ScreenEnvironment
     var body : some View {
-        
         VStack {
             VStack {
                 Text("Ready To Play?")
@@ -265,7 +245,6 @@ struct View3 : View {
                     .foregroundColor(Constants.Common.grayBackground)
                     .frame(width: 40, height: 20)
                     .clipShape(RoundedRectangle(cornerRadius: 5))
-                
             }.padding(.bottom)
             HStack (spacing: 15){
                 Rectangle()
@@ -302,8 +281,7 @@ struct View3 : View {
                     .frame(width: 10, height: 10)
                     .clipShape(RoundedRectangle(cornerRadius: 2))
                     .padding(.trailing)
-                
-            }.padding()//.padding(.top)
+            }.padding()
             ZStack{
                 Rectangle()
                     .foregroundColor(Color(red: 0.21, green: 0.21, blue: 0.21))

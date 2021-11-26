@@ -17,7 +17,6 @@ struct Screen2: View {
     @State private var checkmark = false
     @State private var colorFlashing = false
     @State private var scale: CGFloat = 0
-
     
     var body: some View {
         GeometryReader { geometry in
@@ -83,12 +82,10 @@ struct Screen2: View {
                         .frame(width: 190, height: 410)
                     
                 }
-                
                 .opacity(self.show ?  1: 0)
                 .offset(x: self.show ? 0 : 100)
                 .animation(Animation.easeOut(duration: 1).delay(1))
                 Button {
-                    //show2 = true
                     withAnimation {
                         switch selectedScreen.buttonStates {
                         case .first :
@@ -99,9 +96,7 @@ struct Screen2: View {
                         case .second:
                             print("")
                         case .third:
-                            
                             Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
-                                
                                 withAnimation (.easeIn(duration: 0.5)) {
                                     selectedScreen.buttonStates = .fourth
                                 }
@@ -113,9 +108,7 @@ struct Screen2: View {
                             }
                         }
                     }
-                    
                 } label: {
-                    
                     switch selectedScreen.buttonStates {
                     case .first :
                         ZStack{
@@ -134,8 +127,6 @@ struct Screen2: View {
                             .animation(Animation.easeOut(duration: 1).delay(0.1))
                         
                     case .second :
-                        
-                        
                         HStack{
                             ZStack {
                                 Rectangle()
@@ -148,9 +139,6 @@ struct Screen2: View {
                                     Text("30 MB")
                                 }.foregroundColor(.white)
                             }
-                            //                                .opacity(self.show ?  1: 0)
-                            //                                .offset(y: self.show ? 0 : -30)
-                            //                                .animation(Animation.easeOut(duration: 1).delay(0.1))
                             ZStack {
                                 Circle()
                                     .foregroundColor(Constants.Button.color1)
@@ -173,28 +161,20 @@ struct Screen2: View {
                                     .frame(width: self.loading ? 300 : 60 , height: 60)
                                     .clipShape(RoundedRectangle(cornerRadius: 30))
                                     .padding()
-                                //.offset(x: -120)
                                     .animation(.linear(duration: 2))
                                     .onAppear(){
                                         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
                                             self.loading = true
-                                            
-                                            
                                         }
                                         Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
                                             self.loading = true
                                             self.selectedScreen.buttonStates = .fourth
-                                            
-                                            
                                         }
                                     }
                                 VStack {
                                     Text("10 MB / 30 MB")
                                 }.foregroundColor(.white).offset(x: 120)
                             }
-                            //                                .opacity(self.show ?  1: 0)
-                            //                                .offset(y: self.show ? 0 : -30)
-                            //                                .animation(Animation.easeOut(duration: 1).delay(0.1))
                             ZStack {
                                 Circle()
                                     .foregroundColor(Constants.Button.color1)
@@ -204,7 +184,6 @@ struct Screen2: View {
                             }.offset(x: -20)
                                 .onAppear(){
                                     Timer.scheduledTimer(withTimeInterval: 2.5, repeats: false) { _ in
-                                        
                                         self.checkmark = true
                                     }
                                 }
@@ -223,49 +202,25 @@ struct Screen2: View {
                             .scaleEffect(scale)
                             .animation(.linear(duration: 0.4), value: scale)
                             .onAppear(){
-                                
-                                //Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { _ in
-                                    self.scale = 1.0
-                                //}
-                                
+                                self.scale = 1.0
                                 Timer.scheduledTimer(withTimeInterval: 0.8, repeats: true) { _ in
                                     withAnimation(.linear(duration: 0.4)) {
                                         self.colorFlashing.toggle()
                                     }
                                 }
-                        }
-                    }//colorFlashing
+                            }
+                    }
                 }
             }
             .onAppear(perform: {
-                
                 self.show = true
             })
             BottomSheetView(isOpen: $show2, maxHeight: 380) {
                 if selectedScreen.sheetScreen == .screen3 {
-                    
                     Screen3()
-                } else if selectedScreen.sheetScreen == .screen4 {
-                    Screen4()
-                } else {
-                    Screen5()
                 }
-                
             }
         }
-    }
-}
-
-
-
-struct TextView1: View {
-    var body: some View {
-        VStack {
-            Text("Download")
-            Text("30 MB")
-            
-        }
-        
     }
 }
 

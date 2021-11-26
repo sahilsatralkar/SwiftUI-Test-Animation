@@ -13,8 +13,6 @@
 		1C9F20E9274BDFAC00DDD4F5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C9F20E8274BDFAC00DDD4F5 /* Preview Assets.xcassets */; };
 		1C9F20F0274C139C00DDD4F5 /* Screen2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9F20EF274C139C00DDD4F5 /* Screen2.swift */; };
 		1C9F20F2274C1AAF00DDD4F5 /* Screen3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9F20F1274C1AAF00DDD4F5 /* Screen3.swift */; };
-		1C9F20F4274C1FAE00DDD4F5 /* Screen4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9F20F3274C1FAE00DDD4F5 /* Screen4.swift */; };
-		1C9F20F6274C22BF00DDD4F5 /* Screen5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9F20F5274C22BF00DDD4F5 /* Screen5.swift */; };
 		1C9F20F8274D235100DDD4F5 /* Screen1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9F20F7274D235100DDD4F5 /* Screen1.swift */; };
 		1C9F20FA274D328200DDD4F5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9F20F9274D328200DDD4F5 /* Constants.swift */; };
 		1C9F20FC274E78D600DDD4F5 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9F20FB274E78D600DDD4F5 /* BottomSheetView.swift */; };
@@ -28,8 +26,6 @@
 		1C9F20E8274BDFAC00DDD4F5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1C9F20EF274C139C00DDD4F5 /* Screen2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen2.swift; sourceTree = "<group>"; };
 		1C9F20F1274C1AAF00DDD4F5 /* Screen3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen3.swift; sourceTree = "<group>"; };
-		1C9F20F3274C1FAE00DDD4F5 /* Screen4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen4.swift; sourceTree = "<group>"; };
-		1C9F20F5274C22BF00DDD4F5 /* Screen5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen5.swift; sourceTree = "<group>"; };
 		1C9F20F7274D235100DDD4F5 /* Screen1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen1.swift; sourceTree = "<group>"; };
 		1C9F20F9274D328200DDD4F5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1C9F20FB274E78D600DDD4F5 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
@@ -71,8 +67,6 @@
 				1C9F20F7274D235100DDD4F5 /* Screen1.swift */,
 				1C9F20EF274C139C00DDD4F5 /* Screen2.swift */,
 				1C9F20F1274C1AAF00DDD4F5 /* Screen3.swift */,
-				1C9F20F3274C1FAE00DDD4F5 /* Screen4.swift */,
-				1C9F20F5274C22BF00DDD4F5 /* Screen5.swift */,
 				1C9F20FB274E78D600DDD4F5 /* BottomSheetView.swift */,
 				1C9F20E5274BDFAC00DDD4F5 /* Assets.xcassets */,
 				1C9F20E7274BDFAC00DDD4F5 /* Preview Content */,
@@ -159,10 +153,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C9F20F0274C139C00DDD4F5 /* Screen2.swift in Sources */,
-				1C9F20F4274C1FAE00DDD4F5 /* Screen4.swift in Sources */,
 				1C9F20FC274E78D600DDD4F5 /* BottomSheetView.swift in Sources */,
 				1C9F20E4274BDFAA00DDD4F5 /* ParentView.swift in Sources */,
-				1C9F20F6274C22BF00DDD4F5 /* Screen5.swift in Sources */,
 				1C9F20E2274BDFAA00DDD4F5 /* TotalityDemoApp.swift in Sources */,
 				1C9F20F2274C1AAF00DDD4F5 /* Screen3.swift in Sources */,
 				1C9F20F8274D235100DDD4F5 /* Screen1.swift in Sources */,
