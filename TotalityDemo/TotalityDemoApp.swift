@@ -25,4 +25,5 @@ class ScreenEnvironment : ObservableObject {
     @Published var isHalfSheetNav :Bool = false
     @Published var isHalfSheetNav2 :Bool = false
     @Published var isHalfSheetNav3 :Bool = false
+    @Published var buttonStates : ButtonStates = .first
 }

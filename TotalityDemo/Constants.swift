@@ -21,5 +21,12 @@ struct Constants {
         static let buttonColor2 = Color(red: 142/255, green: 209/255, blue: 76/255)
     }
     
+    struct Button {
+        static let color1 = Color(red: 246/255, green: 230/255, blue: 85/255)
+        static let color2 = Color(red: 142/255, green: 209/255, blue: 76/255)
+        static let color3 = Color(red: 219/255, green: 241/255, blue: 193/255)
+        static let color4 = Color(red: 130/255, green: 172/255, blue: 227/255)
+        static let color5 = Color(red: 104/255, green: 153/255, blue: 223/255)
+    }
 }
 

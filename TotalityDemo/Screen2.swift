@@ -13,6 +13,11 @@ struct Screen2: View {
     @State private var show2 = false
     
     @State private var sheet3Mode : Screen3Mode = .none
+    @State private var loading = false
+    @State private var checkmark = false
+    @State private var colorFlashing = false
+    @State private var scale: CGFloat = 0
+
     
     var body: some View {
         GeometryReader { geometry in
@@ -83,33 +88,157 @@ struct Screen2: View {
                 .offset(x: self.show ? 0 : 100)
                 .animation(Animation.easeOut(duration: 1).delay(1))
                 Button {
-                    print("ON tap download button")
-                    show2 = true
-                    
-                    Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
-                        selectedScreen.isHalfSheetNav = true
+                    //show2 = true
+                    withAnimation {
+                        switch selectedScreen.buttonStates {
+                        case .first :
+                            selectedScreen.buttonStates = .second
+                            Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
+                                selectedScreen.buttonStates = .third
+                            }
+                        case .second:
+                            print("")
+                        case .third:
+                            
+                            Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
+                                
+                                withAnimation (.easeIn(duration: 0.5)) {
+                                    selectedScreen.buttonStates = .fourth
+                                }
+                            }
+                        case .fourth:
+                            self.show2 = true
+                            Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
+                                selectedScreen.isHalfSheetNav = true
+                            }
+                        }
                     }
                     
                 } label: {
-                    ZStack{
-                        Rectangle()
-                            .fill(.yellow)
-                            .frame(width: 350, height: 60)
-                            .clipShape(RoundedRectangle(cornerRadius: 30))
-                            .padding()
-                        VStack {
-                            Text("Download")
-                            Text("30 MB")
-                        }.foregroundColor(.white)
-                    }.padding(.top)
-                        .opacity(self.show ?  1: 0)
-                        .offset(y: self.show ? 0 : -30)
-                        .animation(Animation.easeOut(duration: 1).delay(0.1))
+                    
+                    switch selectedScreen.buttonStates {
+                    case .first :
+                        ZStack{
+                            Rectangle()
+                                .foregroundColor(Constants.Button.color2)
+                                .frame(width: 350, height: 60)
+                                .clipShape(RoundedRectangle(cornerRadius: 30))
+                                .padding()
+                            VStack {
+                                Text("Download")
+                                Text("30 MB")
+                            }.foregroundColor(.white)
+                        }.padding(.top)
+                            .opacity(self.show ?  1: 0)
+                            .offset(y: self.show ? 0 : -30)
+                            .animation(Animation.easeOut(duration: 1).delay(0.1))
+                        
+                    case .second :
+                        
+                        
+                        HStack{
+                            ZStack {
+                                Rectangle()
+                                    .foregroundColor(Constants.Button.color2)
+                                    .frame(width: 300, height: 60)
+                                    .clipShape(RoundedRectangle(cornerRadius: 30))
+                                    .padding()
+                                VStack {
+                                    Text("Download")
+                                    Text("30 MB")
+                                }.foregroundColor(.white)
+                            }
+                            //                                .opacity(self.show ?  1: 0)
+                            //                                .offset(y: self.show ? 0 : -30)
+                            //                                .animation(Animation.easeOut(duration: 1).delay(0.1))
+                            ZStack {
+                                Circle()
+                                    .foregroundColor(Constants.Button.color1)
+                                    .frame(width: 40, height: 40)
+                                Image(systemName: "xmark")
+                                
+                            }.offset(x: -20)
+                        }.frame(width: 350).padding(.top)
+                        
+                    case .third :
+                        HStack{
+                            ZStack (alignment: .leading){
+                                Rectangle()
+                                    .foregroundColor(Constants.Button.color3)
+                                    .frame(width: 300, height: 60)
+                                    .clipShape(RoundedRectangle(cornerRadius: 30))
+                                    .padding()
+                                Rectangle()
+                                    .foregroundColor(Constants.Button.color2)
+                                    .frame(width: self.loading ? 300 : 60 , height: 60)
+                                    .clipShape(RoundedRectangle(cornerRadius: 30))
+                                    .padding()
+                                //.offset(x: -120)
+                                    .animation(.linear(duration: 2))
+                                    .onAppear(){
+                                        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
+                                            self.loading = true
+                                            
+                                            
+                                        }
+                                        Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
+                                            self.loading = true
+                                            self.selectedScreen.buttonStates = .fourth
+                                            
+                                            
+                                        }
+                                    }
+                                VStack {
+                                    Text("10 MB / 30 MB")
+                                }.foregroundColor(.white).offset(x: 120)
+                            }
+                            //                                .opacity(self.show ?  1: 0)
+                            //                                .offset(y: self.show ? 0 : -30)
+                            //                                .animation(Animation.easeOut(duration: 1).delay(0.1))
+                            ZStack {
+                                Circle()
+                                    .foregroundColor(Constants.Button.color1)
+                                    .frame(width: 40, height: 40)
+                                Image(systemName: self.checkmark ? "checkmark" : "xmark" )
+                                
+                            }.offset(x: -20)
+                                .onAppear(){
+                                    Timer.scheduledTimer(withTimeInterval: 2.5, repeats: false) { _ in
+                                        
+                                        self.checkmark = true
+                                    }
+                                }
+                        }.frame(width: 350).padding(.top)
+                    case .fourth :
+                        ZStack{
+                            Rectangle()
+                                .foregroundColor(self.colorFlashing ? Constants.Button.color4 : Constants.Button.color5)
+                                .frame(width: 350, height: 60)
+                                .clipShape(RoundedRectangle(cornerRadius: 30))
+                                .padding()
+                            VStack {
+                                Text("PLAY")
+                            }.foregroundColor(.white)
+                        }.padding(.top)
+                            .scaleEffect(scale)
+                            .animation(.linear(duration: 0.2), value: scale)
+                            .onAppear(){
+                                
+                                //Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { _ in
+                                    self.scale = 1.0
+                                //}
+                                
+                                Timer.scheduledTimer(withTimeInterval: 0.8, repeats: true) { _ in
+                                    withAnimation(.linear(duration: 0.4)) {
+                                        self.colorFlashing.toggle()
+                                    }
+                                }
+                        }
+                    }//colorFlashing
                 }
             }
             .onAppear(perform: {
                 
-                print("On appear")
                 self.show = true
             })
             BottomSheetView(isOpen: $show2, maxHeight: 380) {

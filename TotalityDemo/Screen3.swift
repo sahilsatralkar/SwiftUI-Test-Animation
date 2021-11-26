@@ -111,7 +111,7 @@ struct View1 : View {
                         .frame(width:80, height: 20)
                         .clipShape(RoundedRectangle(cornerRadius: 3))
                 }
-            }.padding()
+            }.padding().padding(.top)
                 .offset( x: self.selectedScreen.isHalfSheetNav ? 0 : 500)
                 .animation(Animation.easeInOut(duration: 1), value: 1)
             
@@ -206,7 +206,7 @@ struct View2 : View {
                     .clipShape(RoundedRectangle(cornerRadius: 5))
                     .padding(.trailing)
                 
-            }.padding()
+            }.padding().padding(.top)
             Button {
                 if selectedScreen.sheetScreenHalf == .screen1 {
                     self.selectedScreen.sheetScreenHalf = .screen2
@@ -303,7 +303,7 @@ struct View3 : View {
                     .clipShape(RoundedRectangle(cornerRadius: 2))
                     .padding(.trailing)
                 
-            }.padding(.top)
+            }.padding()//.padding(.top)
             ZStack{
                 Rectangle()
                     .foregroundColor(Color(red: 0.21, green: 0.21, blue: 0.21))

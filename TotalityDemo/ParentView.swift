@@ -14,6 +14,10 @@ enum SheetScreenHalf {
     case screen1, screen2, screen3
 }
 
+enum ButtonStates {
+    case first, second, third, fourth
+}
+
 struct ParentView: View {
     @State var selection : Int? = nil
     
