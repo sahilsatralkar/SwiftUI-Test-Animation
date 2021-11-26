@@ -221,7 +221,7 @@ struct Screen2: View {
                             }.foregroundColor(.white)
                         }.padding(.top)
                             .scaleEffect(scale)
-                            .animation(.linear(duration: 0.2), value: scale)
+                            .animation(.linear(duration: 0.4), value: scale)
                             .onAppear(){
                                 
                                 //Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { _ in
